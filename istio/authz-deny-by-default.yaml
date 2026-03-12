@@ -1,0 +1,29 @@
+﻿apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: deny-gateway
+  namespace: secure
+spec:
+  selector:
+    matchLabels:
+      app: gateway
+---
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: deny-users
+  namespace: secure
+spec:
+  selector:
+    matchLabels:
+      app: users
+---
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: deny-pay
+  namespace: secure
+spec:
+  selector:
+    matchLabels:
+      app: pay

@@ -1,0 +1,14 @@
+﻿apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-gateway-public
+  namespace: secure
+spec:
+  selector:
+    matchLabels:
+      app: gateway
+  action: ALLOW
+  rules:
+  - to:
+    - operation:
+        paths: ["/health", "/gateway/*"]
